@@ -1,0 +1,40 @@
+extends layout
+
+block scripts
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='//hub.loginradius.com/include/js/LoginRadius.js')
+    script(src='//cdn.loginradius.com/hub/prod/js/LoginRadiusRaaS.js')
+    script(src='/javascripts/LoginRadiusSDK.2.0.1.js')
+    script(src='/javascripts/lr-option.js')
+    //script(src='/javascripts/lr-register.js')
+
+
+block content
+    a(href='/') Home
+    br
+    br
+    h3= title
+    each val in errorMsgs
+        h4(style="color:red;")= val
+
+    //auto generated, send all datas via js
+    //div(id="registration" class="registration")
+
+    //manual form and go through server
+    form(method='POST' action='/register')
+        div.form-group
+            label(for='email') Email:
+            input#email.form-control(type='email', placeholder='name@email.com' name='email' value=email)
+        div.form-group
+            label(for='pw') Password:
+            input#pw.form-control(type='password' name='password' value=password)
+        div.form-group
+            label(for='pw2') Confirm Password:
+            input#pw2.form-control(type='password' name='confirmPassword' value=confirmPassword)
+        div.form-group
+            if emailSubscription == 'on'
+                input(type='checkbox' name='emailSubscription' checked)
+            else
+                input(type='checkbox' name='emailSubscription')
+            label(for='pw') Subscribe to our NewsLetter
+        button.btn.btn-primary(type='submit') Sign up

@@ -1,0 +1,15 @@
+extends layout
+
+block scripts
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js')
+    script(src='//hub.loginradius.com/include/js/LoginRadius.js')
+    script(src='//cdn.loginradius.com/hub/prod/js/LoginRadiusRaaS.js')
+    script(src='/javascripts/LoginRadiusSDK.2.0.1.js')
+    script(src='/javascripts/lr-option.js')
+    script(src='/javascripts/lr-emailverification.js')
+
+block content
+    a(href='/') Home
+    br
+    br
+    h2(id='email-verification-result')
